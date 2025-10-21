@@ -1,0 +1,18 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Observability Dashboard",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "App Metrics",
+        "targets": [
+          {
+            "expr": "up{job='python-app'}",
+            "legendFormat": "Up"
+          }
+        ]
+      }
+    ]
+  }
+}
