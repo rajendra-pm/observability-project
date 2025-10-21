@@ -1,5 +1,4 @@
 auth_enabled: false
-
 server:
   http_listen_port: 3100
 
@@ -14,7 +13,7 @@ ingester:
   chunk_target_size: 1048576
   wal:
     enabled: true
-    dir: /loki/wal  # Add this line
+    dir: /loki/wal
 
 schema_config:
   configs:
