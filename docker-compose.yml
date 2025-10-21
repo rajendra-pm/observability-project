@@ -24,12 +24,14 @@ services:
       - ./grafana/dashboards.json:/var/lib/grafana/dashboards/dashboards.json
 
   loki:
-    image: grafana/loki:2.8.2
-    ports:
-      - "3100:3100"
-    volumes:
-      - ./loki/config.yml:/etc/loki/local-config.yaml
-    command: -config.file=/etc/loki/local-config.yaml
+  image: grafana/loki:2.8.2
+  ports:
+    - "3100:3100"
+  volumes:
+    - ./loki/config.yml:/etc/loki/local-config.yaml
+    - ./loki-data:/loki          # chunks + index
+    - ./loki-wal:/loki/wal       # WAL
+  command: -config.file=/etc/loki/local-config.yaml
 
   jaeger:
     image: jaegertracing/all-in-one:1.46
